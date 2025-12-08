@@ -6,7 +6,10 @@
 
     import { PUBLIC_VERCEL_URL } from "$env/static/public";
 
-    let { session } = $props<{ session: Session | null }>();
+    let { session, isAdmin = false } = $props<{
+        session: Session | null;
+        isAdmin?: boolean;
+    }>();
     const supabase = createSupabaseClient();
 
     const links = [
@@ -69,6 +72,17 @@
         <!-- Auth -->
         <div class="flex items-center gap-4">
             {#if session}
+                {#if isAdmin}
+                    <a href="/admin">
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            class="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-500/10"
+                        >
+                            Admin
+                        </Button>
+                    </a>
+                {/if}
                 <div
                     class="hidden sm:flex items-center gap-3 text-sm text-slate-300"
                 >
@@ -78,19 +92,9 @@
                     </Button>
                 </div>
             {:else}
-                <div class="flex items-center gap-2">
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        class="hidden sm:flex text-slate-400 hover:text-white"
-                        onclick={handleLogin}
-                    >
-                        Admin
-                    </Button>
-                    <Button variant="outline" size="sm" onclick={handleLogin}>
-                        Sign In
-                    </Button>
-                </div>
+                <Button variant="outline" size="sm" onclick={handleLogin}>
+                    Sign In
+                </Button>
             {/if}
         </div>
     </div>

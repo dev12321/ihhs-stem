@@ -7,7 +7,7 @@
 	import { onMount } from "svelte";
 
 	let { children, data } = $props();
-	let { supabase, session } = data;
+	let { supabase, session, isAdmin } = data;
 
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
@@ -27,7 +27,7 @@
 <div
 	class="min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30 font-sans"
 >
-	<Navbar {session} />
+	<Navbar {session} {isAdmin} />
 
 	<main class="pt-20 min-h-[calc(100vh-80px)]">
 		{@render children()}
