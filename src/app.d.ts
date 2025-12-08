@@ -22,7 +22,7 @@ declare module '$env/static/public' {
 	export const PUBLIC_SUPABASE_URL: string;
 	export const PUBLIC_SUPABASE_ANON_KEY: string;
 	export const PUBLIC_SUPABASE_PUBLISHABLE_KEY: string | undefined;
-	export const VERCEL_URL: string;
+	export const PUBLIC_VERCEL_URL: string;
 }
 
 declare module '$env/static/private' {

@@ -4,7 +4,7 @@
     import { createSupabaseClient } from "$lib/supabase";
     import type { Session } from "@supabase/supabase-js";
 
-    import { VERCEL_URL } from "$env/static/public";
+    import { PUBLIC_VERCEL_URL } from "$env/static/public";
 
     let { session } = $props<{ session: Session | null }>();
     const supabase = createSupabaseClient();
@@ -20,7 +20,7 @@
         await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: `${VERCEL_URL}/auth/callback`,
+                redirectTo: `${PUBLIC_VERCEL_URL}/auth/callback`,
             },
         });
     };

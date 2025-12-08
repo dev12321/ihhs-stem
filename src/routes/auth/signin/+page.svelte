@@ -2,7 +2,7 @@
     import { createSupabaseClient } from "$lib/supabase";
     import Button from "$lib/components/ui/Button.svelte";
     import Card from "$lib/components/ui/Card.svelte";
-    import { VERCEL_URL } from "$env/static/public";
+    import { PUBLIC_VERCEL_URL } from "$env/static/public";
 
     const supabase = createSupabaseClient();
 
@@ -10,7 +10,7 @@
         await supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: `${VERCEL_URL}/auth/callback`,
+                redirectTo: `${PUBLIC_VERCEL_URL}/auth/callback`,
             },
         });
     };
