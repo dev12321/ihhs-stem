@@ -25,7 +25,6 @@ declare module '$env/static/public' {
 }
 
 declare module '$env/static/private' {
-	export const SUPABASE_SERVICE_ROLE_KEY: string;
 	export const SUPABASE_SECRET_KEY: string | undefined;
 	export const DATA_PROXY_URL: string | undefined;
 	export const ADMIN_EMAILS: string | undefined;
