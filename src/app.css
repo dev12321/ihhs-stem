@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Premium global styles could go here */
+body {
+    @apply antialiased text-gray-900 bg-gray-50;
+}

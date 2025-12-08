@@ -1,0 +1,39 @@
+{
+	"name": "app",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^7.0.0",
+		"@sveltejs/kit": "^2.48.5",
+		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"@tailwindcss/postcss": "^4.1.17",
+		"autoprefixer": "^10.4.22",
+		"lightningcss": "^1.30.2",
+		"postcss": "^8.5.6",
+		"svelte": "^5.43.8",
+		"svelte-check": "^4.3.4",
+		"tailwindcss": "^4.1.17",
+		"typescript": "^5.9.3",
+		"vite": "^7.2.2"
+	},
+	"dependencies": {
+		"@auth/core": "^0.41.1",
+		"@auth/supabase-adapter": "^1.11.1",
+		"@auth/sveltekit": "^1.11.1",
+		"@rollup/rollup-win32-x64-msvc": "^4.53.3",
+		"@supabase/ssr": "^0.8.0",
+		"@supabase/supabase-js": "^2.86.2",
+		"clsx": "^2.1.1",
+		"lucide-svelte": "^0.556.0",
+		"tailwind-merge": "^3.4.0"
+	}
+}
