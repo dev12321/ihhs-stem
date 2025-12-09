@@ -95,7 +95,22 @@
                     <p class="text-sm text-white mb-2 line-clamp-1">
                         {image.caption || "No caption"}
                     </p>
-                    <form method="POST" action="?/delete" use:enhance>
+                    <form
+                        method="POST"
+                        action="?/delete"
+                        use:enhance={({ cancel }) => {
+                            if (
+                                !confirm(
+                                    "Are you sure you want to delete this photo?",
+                                )
+                            ) {
+                                cancel();
+                            }
+                            return async ({ update }) => {
+                                await update();
+                            };
+                        }}
+                    >
                         <input type="hidden" name="id" value={image.id} />
                         <Button
                             type="submit"

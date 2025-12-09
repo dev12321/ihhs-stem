@@ -200,7 +200,22 @@
                     >
                         Edit
                     </Button>
-                    <form method="POST" action="?/delete" use:enhance>
+                    <form
+                        method="POST"
+                        action="?/delete"
+                        use:enhance={({ cancel }) => {
+                            if (
+                                !confirm(
+                                    "Are you sure you want to delete this stall?",
+                                )
+                            ) {
+                                cancel();
+                            }
+                            return async ({ update }) => {
+                                await update();
+                            };
+                        }}
+                    >
                         <input type="hidden" name="id" value={stall.id} />
                         <Button
                             type="submit"
