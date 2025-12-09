@@ -16,6 +16,7 @@
 		"@sveltejs/kit": "^2.48.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/postcss": "^4.1.17",
+		"@types/uuid": "^11.0.0",
 		"autoprefixer": "^10.4.22",
 		"lightningcss": "^1.30.2",
 		"postcss": "^8.5.6",
@@ -29,10 +30,13 @@
 		"@auth/core": "^0.41.1",
 		"@auth/supabase-adapter": "^1.11.1",
 		"@auth/sveltekit": "^1.11.1",
+		"@aws-sdk/client-s3": "^3.947.0",
+		"@aws-sdk/s3-request-presigner": "^3.947.0",
 		"@supabase/ssr": "^0.8.0",
 		"@supabase/supabase-js": "^2.86.2",
 		"clsx": "^2.1.1",
 		"lucide-svelte": "^0.556.0",
-		"tailwind-merge": "^3.4.0"
+		"tailwind-merge": "^3.4.0",
+		"uuid": "^13.0.0"
 	}
 }

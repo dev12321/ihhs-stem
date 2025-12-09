@@ -18,7 +18,7 @@ export const actions: Actions = {
         const caption = data.get('caption') as string;
 
         if (!image_url) {
-            return fail(400, { message: 'Image URL is required' });
+            return fail(400, { message: 'Image URL is required', image_url, caption });
         }
 
         const { error } = await supabaseAdmin.from('gallery').insert({
@@ -26,7 +26,7 @@ export const actions: Actions = {
         });
 
         if (error) {
-            return fail(500, { message: error.message });
+            return fail(500, { message: error.message, image_url, caption });
         }
 
         return { success: true };

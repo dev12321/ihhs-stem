@@ -2,9 +2,24 @@
     import { enhance } from "$app/forms";
     import Button from "$lib/components/ui/Button.svelte";
     import Card from "$lib/components/ui/Card.svelte";
+    import ImageUpload from "$lib/components/ui/ImageUpload.svelte";
 
     let { data, form } = $props();
     let isCreating = $state(false);
+
+    // Initial state from form if available (e.g. after validation error)
+    // cast to any to avoid strict union property access errors since not all form states have these props
+    let imageUrl = $state((form as any)?.image_url ?? "");
+    let caption = $state((form as any)?.caption ?? "");
+
+    // Sync form errors/values back to state if they return from server
+    $effect(() => {
+        if (form) {
+            const f = form as any;
+            if (f.image_url) imageUrl = f.image_url;
+            if (f.caption) caption = f.caption;
+        }
+    });
 </script>
 
 <div class="max-w-6xl mx-auto px-6 py-12">
@@ -27,32 +42,36 @@
                 action="?/create"
                 use:enhance={() => {
                     return async ({ result, update }) => {
-                        if (result.type === "success") isCreating = false;
+                        if (result.type === "success") {
+                            isCreating = false;
+                            // Reset form
+                            imageUrl = "";
+                            caption = "";
+                        }
                         await update();
                     };
                 }}
             >
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <label class="block">
-                        <span class="text-sm text-slate-400">Image URL *</span>
-                        <input
-                            name="image_url"
-                            type="text"
-                            placeholder="https://..."
-                            required
-                            class="w-full mt-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
-                        />
-                    </label>
+                    <div class="block">
+                        <span class="text-sm text-slate-400">Image *</span>
+                        <ImageUpload name="image_url" bind:value={imageUrl} />
+                    </div>
 
                     <label class="block">
                         <span class="text-sm text-slate-400">Caption</span>
                         <input
                             name="caption"
                             type="text"
+                            bind:value={caption}
                             class="w-full mt-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
                         />
                     </label>
                 </div>
+
+                {#if form?.message}
+                    <p class="text-red-400 text-sm mb-4">{form.message}</p>
+                {/if}
 
                 <Button type="submit">Add Photo</Button>
             </form>
