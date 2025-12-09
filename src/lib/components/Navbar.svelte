@@ -40,15 +40,15 @@
     <!-- Logo -->
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3 group">
-            <div
-                class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-500/20 transition-transform duration-300 group-hover:scale-110"
-            >
-                S
-            </div>
+            <img
+                src="/logo.png"
+                alt="STEM 2025 Logo"
+                class="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110"
+            />
             <span
                 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 group-hover:to-white transition-all"
             >
-                STEM 2025
+                STEM EXPO 2025
             </span>
         </a>
 
