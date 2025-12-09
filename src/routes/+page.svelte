@@ -74,8 +74,7 @@
                     Diverse Categories
                 </h3>
                 <p class="text-slate-400">
-                    From Quantum Physics to Sustainable Energy, explore projects
-                    across a wide range of STEM fields.
+                    Explore projects across a wide range of STEM fields.
                 </p>
             </Card>
 
