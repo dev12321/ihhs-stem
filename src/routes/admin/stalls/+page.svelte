@@ -13,8 +13,6 @@
         name: "",
         category: "",
         students: "",
-        class_grade: "",
-        location: "",
         image_url: "",
         description: "",
     });
@@ -25,9 +23,6 @@
             if (form.name) formState.name = form.name as string;
             if (form.category) formState.category = form.category as string;
             if (form.students) formState.students = form.students as string;
-            if (form.class_grade)
-                formState.class_grade = form.class_grade as string;
-            if (form.location) formState.location = form.location as string;
             if (form.image_url) formState.image_url = form.image_url as string;
             if (form.description)
                 formState.description = form.description as string;
@@ -39,8 +34,6 @@
             name: stall.name,
             category: stall.category,
             students: stall.students || "",
-            class_grade: stall.class_grade || "",
-            location: stall.location || "",
             image_url: stall.image_url || "",
             description: stall.description || "",
         };
@@ -56,8 +49,6 @@
             name: "",
             category: "",
             students: "",
-            class_grade: "",
-            location: "",
             image_url: "",
             description: "",
         };
@@ -139,28 +130,6 @@
                             type="text"
                             placeholder="John Doe, Jane Smith"
                             bind:value={formState.students}
-                            class="w-full mt-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
-                        />
-                    </label>
-
-                    <label class="block">
-                        <span class="text-sm text-slate-400">Class/Grade</span>
-                        <input
-                            name="class_grade"
-                            type="text"
-                            placeholder="Class 10"
-                            bind:value={formState.class_grade}
-                            class="w-full mt-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
-                        />
-                    </label>
-
-                    <label class="block">
-                        <span class="text-sm text-slate-400">Location/Plot</span
-                        >
-                        <input
-                            name="location"
-                            type="text"
-                            bind:value={formState.location}
                             class="w-full mt-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
                         />
                     </label>

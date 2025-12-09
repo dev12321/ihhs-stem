@@ -88,11 +88,6 @@
                                         {stall.students}
                                     </p>
                                 </div>
-                                <div
-                                    class="text-xs font-mono text-slate-500 bg-white/5 px-2 py-1 rounded"
-                                >
-                                    #{stall.location || "00"}
-                                </div>
                             </div>
 
                             <p class="text-slate-400 text-sm mb-6 line-clamp-2">

@@ -85,11 +85,6 @@
                             >
                                 {stall.name}
                             </h3>
-                            <span
-                                class="text-xs text-slate-500 font-mono border border-white/10 px-2 py-1 rounded"
-                            >
-                                Plot {stall.location || "TBA"}
-                            </span>
                         </div>
 
                         <p
@@ -102,20 +97,9 @@
                             <div
                                 class="flex items-center gap-3 text-sm text-slate-300 mb-4"
                             >
-                                <div
-                                    class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-500"
-                                >
-                                    {(stall.class_grade || "9").replace(
-                                        /\D/g,
-                                        "",
-                                    )}
-                                </div>
                                 <div>
                                     <p class="font-medium text-white">
                                         {stall.students || "Students"}
-                                    </p>
-                                    <p class="text-xs text-slate-500">
-                                        {stall.class_grade || "Grade 10"}
                                     </p>
                                 </div>
                             </div>
